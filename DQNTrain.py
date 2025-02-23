@@ -25,7 +25,8 @@ class TrainAndLoggingCallback(BaseCallback):
 CHECKPOINT_DIR='./train'
 LOG_DIR='./logs'
 
-callback=TrainAndLoggingCallback(check_freq=5,save_path=CHECKPOINT_DIR)
+callback=TrainAndLoggingCallback(check_freq=10000,save_path=CHECKPOINT_DIR)
 
-mymodel=DQN('CnnPolicy',GameEnv,tensorboard_log=LOG_DIR,verbose=1,buffer_size=40000,learning_starts=700)
-mymodel.learn(total_timesteps=10,callback=callback)
+mymodel=DQN('CnnPolicy',GameEnv,tensorboard_log=LOG_DIR,verbose=1,buffer_size=30000,learning_starts=1000)
+mymodel.learn(total_timesteps=75000,callback=callback)
+ 

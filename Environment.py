@@ -41,7 +41,7 @@ class Mygame(Env):
         time.sleep(1)
         pydirectinput.click(x=200, y=200)
         pydirectinput.press('space')
-        return self.get_observation(), {}
+        return self.get_observation()
     def render(self):
         cv2.imshow('Game',np.array(self.cap.grab(self.game_location))[:,:,:3])
         if cv2.waitKey(1) & 0xFF==ord('q'):
