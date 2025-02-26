@@ -22,11 +22,12 @@ class TrainAndLoggingCallback(BaseCallback):
             self.model.save(model_path)
         return True
     
-CHECKPOINT_DIR='./train'
+CHECKPOINT_DIR='./train2'
 LOG_DIR='./logs'
 
 callback=TrainAndLoggingCallback(check_freq=10000,save_path=CHECKPOINT_DIR)
 
-mymodel=DQN('CnnPolicy',GameEnv,tensorboard_log=LOG_DIR,verbose=1,buffer_size=30000,learning_starts=1000)
-mymodel.learn(total_timesteps=75000,callback=callback)
+mymodel=DQN('CnnPolicy',GameEnv,tensorboard_log=LOG_DIR,verbose=1,buffer_size=20000,learning_starts=1000)
+mymodel.learn(total_timesteps=80000,callback=callback)
+mymodel.save("./train2/dqn_finetuned")
  
